@@ -15,7 +15,7 @@ function DragonCurve() {
     const defaultLsystem = LsystemGen(axiom, rules, iteration);
     useEffect(() => {
         setTurtles([]);
-        addTurtle(defaultLsystem, 1, 1, 'black');
+        addTurtle(defaultLsystem, 2, 2, 'black');
         console.log("useEffect")
     }, []);
 
@@ -34,9 +34,9 @@ function DragonCurve() {
 
     return (
         <div className='flex w-full h-full'>
-            <Canvas >
-                <BackgroundSetter />
-                <ambientLight intensity={0.5} />
+            <Canvas style={{ width: '100%', height: '100%' }} gl={{ alpha: true, clearColor: 'rgba(0,0,0,0)' }}>
+                
+                <ambientLight intensity={1} />
                 {turtles.map((turtle, index) => (
 
                     <Turtle
