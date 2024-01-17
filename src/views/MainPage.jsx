@@ -10,7 +10,7 @@ function MainPage() {
             <div className='flex '>
                 <Hero />
             </div>
-            <div className='flex p-4'>
+            <div id='lsysSection' className='flex p-4'>
                 <LsysSection />
             </div>
         </div>

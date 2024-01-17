@@ -1,13 +1,14 @@
 import { Line } from '@react-three/drei';
 import * as THREE from 'three';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {Stack} from '../Utils/Stack';
+import { useFrame } from '@react-three/fiber';
 
 const degreetoradian = (degrees) => {
     return degrees * (Math.PI / 180);
 }
 
-function Turtle({ lsystem, length, color, width, angle = 90 }) {
+function Turtle({ lsystem, length, color, width, angle = 90, canvasPosition = [0, 0, 0] }) {
     const points = [];
     const LString = lsystem;
     let pointPosition = new THREE.Vector3(0, 0, 0); // initial point position
@@ -20,6 +21,10 @@ function Turtle({ lsystem, length, color, width, angle = 90 }) {
     let directionSaveStack = new Stack();
     const lineRef = useRef();
     const [position, setPosition] = useState([0, 0, 0]);
+   
+    useEffect(() => {
+        setPosition(canvasPosition);
+    }, [canvasPosition]);
 
 
    
@@ -65,7 +70,6 @@ function Turtle({ lsystem, length, color, width, angle = 90 }) {
             break;
         }
     }
-
     
 
     return (

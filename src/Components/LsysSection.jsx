@@ -51,7 +51,6 @@ export default function LsysSection() {
   useEffect(() => {
     setTurtles([]);
     addTurtle(defaultLsystem, 1, 5, "black");
-    console.log("useEffect");
   }, []);
 
   const resetViewAngle = () => {
@@ -118,13 +117,16 @@ export default function LsysSection() {
           {turtles.map((turtle, index) => (
             <div key={index} className="grid grid-cols-3 ">
               <div className="flex items-center">
-                <p>Image n.{index + 1}</p>
+                <p>Object n.{index + 1}</p>
               </div>
               <button
-                className="col-start-2 col-span-2 bg-green-900 text-white border-2 rounded-lg p-2"
-                onClick={() => removeTurtle(turtle.id)}>
-                Remove
-              </button>
+                    onClick={() => removeTurtle(turtle.id)}
+                    className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="button"
+
+                >
+                    Remove object
+                </button>
             </div>
           ))}
         </div>
