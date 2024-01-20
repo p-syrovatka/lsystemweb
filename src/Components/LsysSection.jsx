@@ -94,7 +94,7 @@ export default function LsysSection() {
 
   return (
     <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-2">
-      <div className="lg:min-h-[700px] lg:max-h-[800px] col-span-2 relative  ">
+      <div className="lg:min-h-[700px] lg:max-h-[800px] col-span-2 relative min-h-[500px]  ">
         <div className="absolute top-0 left-0 m-4 z-10 gap-1 sm:flex">
           <TransformControlSelect
             transfromControlState={transfromControlState}
@@ -112,7 +112,7 @@ export default function LsysSection() {
             Toggle Transform Controls
           </button>
         </div>
-        <Canvas className="border p-4 rounded-lg min-h-3/4">
+        <Canvas className="border p-4 rounded-lg w-full h-full">
           {!isDragging && <OrbitControls ref={controlsRef} />}
           <BackgroundSetter />
           <ambientLight intensity={0.5} />
