@@ -112,7 +112,7 @@ export default function LsysSection() {
             Toggle Transform Controls
           </button>
         </div>
-        <Canvas className="border p-4 rounded-lg">
+        <Canvas className="border p-4 rounded-lg min-h-3/4">
           {!isDragging && <OrbitControls ref={controlsRef} />}
           <BackgroundSetter />
           <ambientLight intensity={0.5} />
