@@ -8,7 +8,7 @@ const degreetoradian = (degrees) => {
     return degrees * (Math.PI / 180);
 }
 
-function Turtle({ lsystem, length, color, width, angle = 90, canvasPosition = [0, 0, 0] }) {
+function Turtle({ lsystem, length = 1, color, width = 1, angle = 90, canvasPosition = [0, 0, 0] }) {
     const points = [];
     const LString = lsystem;
     let pointPosition = new THREE.Vector3(0, 0, 0); // initial point position

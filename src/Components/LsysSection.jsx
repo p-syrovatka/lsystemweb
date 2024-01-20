@@ -62,7 +62,7 @@ export default function LsysSection() {
   };
 
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1 w-full">
+    <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-2">
       <div className="lg:min-h-[700px] lg:max-h-[800px] col-span-2 relative  ">
         <div className="absolute top-0 left-0 m-4 z-10">
           <div className="inline-block relative w-64">
@@ -125,7 +125,7 @@ export default function LsysSection() {
                     type="button"
 
                 >
-                    Remove object
+                    Remove
                 </button>
             </div>
           ))}

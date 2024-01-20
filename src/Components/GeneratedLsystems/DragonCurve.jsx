@@ -34,6 +34,7 @@ function CameraMovement() {
 
 function DragonCurve() {
     const [turtles, setTurtles] = useState([]);
+    const { mousePosition, setMousePosition } = useContext(MousePositionContext);
     
     let rules = { 'F': 'F+G', 'G': 'F-G' };
     let axiom = 'F';
