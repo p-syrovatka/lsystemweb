@@ -57,7 +57,7 @@ function Hero() {
                             </div>
                         </div>
                         <div className="hidden sm:block sm:w-3/5 lg:w-3/5 relative">
-                            <DragonCurve />
+                        <DragonCurve />
                         </div>
                     </div>
                 </div>
