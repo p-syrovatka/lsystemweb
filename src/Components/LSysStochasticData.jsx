@@ -64,13 +64,10 @@ function LsysStochData({ onGenerate }) {
         ? 90
         : angleRef.current.value;
 
-    let newSystem = LsysteStochasticmGen(axiomText, rulesObject, iteratios);
-    /* let newLsystem = LsystemGen(axiomText, rulesObject, iteratios);
-    console.log("newLsystem inside Lsystemdata", newLsystem);
-
-    onGenerate({ newLsystem, length, width, color, angle }); */
-    console.log("newSystem inside Lsystemdata", newSystem);
-    console.log(rulesObject);
+        let newLsystem = LsysteStochasticmGen(axiomText, rulesObject, iteratios);
+        console.log('newSystem:', newLsystem, 'Type:', typeof newLsystem); // Add this line
+        
+        onGenerate({ newLsystem, length, width, color, angle }); 
   };
 
   const toggleModal = () => {

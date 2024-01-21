@@ -13,5 +13,6 @@ export function LsystemGen(axiom, rules, iteration) {
         result = next;
         next = "";
     }
+  
     return result;
 }

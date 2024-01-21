@@ -1,7 +1,5 @@
 export function LsysteStochasticmGen(axiom, rules, iterations) {
-    console.log(`axiom: ${axiom}, rules: ${rules}, iterations: ${iterations}`)
     let result = axiom;
-
     for (let i = 0; i < iterations; i++) {
         let newResult = "";
         for (let j = 0; j < result.length; j++) {
@@ -15,8 +13,7 @@ export function LsysteStochasticmGen(axiom, rules, iterations) {
                 for (let k = 0; k < matchedRule.length; k++) {
                     let rule = matchedRule[k];
                     cumulativeProbability += parseFloat(rule.chance);
-                
-                    console.log(`currentSymbol: ${currentSymbol}, randomChance: ${randomChance}, cumulativeProbability: ${cumulativeProbability}, rule: ${rule.rule}`);
+            
                     
                     if (randomChance < cumulativeProbability) {
                         selectedRule = rule;
@@ -32,10 +29,8 @@ export function LsysteStochasticmGen(axiom, rules, iterations) {
             } else {
                 newResult += currentSymbol;
             }
-            console.log(`newResult: ${newResult}`);
         }
         result = newResult;
     }
-
     return result;
 }
