@@ -1,5 +1,4 @@
 import React, { useState, useRef, createRef } from "react";
-import { LsystemGen } from "../Utils/LsystemGenerator";
 import {LsysteStochasticmGen} from "../Utils/LsystemStochasticGenerator";
 import PopModal from "./Modal";
 

@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import DragonCurve from "./GeneratedLsystems/DragonCurve";
 import { smoothScroll } from "../Utils/SmoothScroll";
+import InfoPopupHWAcc from "./InfoPopupHWAcc";
+import { Link } from "react-router-dom";
 
 export const MousePositionContext = React.createContext([0, 0]);
 
@@ -9,6 +11,7 @@ export const MousePositionContext = React.createContext([0, 0]);
 function Hero() {
     const textData = " An L-system or Lindenmayer system is a parallel rewriting system and a type of formal grammar. They were introduced Aristid Lindenmayer, a Hungarian theoretical biologist and botanist at the University of Utrecht. Lindenmayer used L-systems to describe the behaviour of plant cells and to model the growth processes of plant development."
     const [mousePosition, setMousePosition] = useState([0, 0]);
+    const [showPopup, setShowPopup] = useState(true);
 
     const handleMouseMove = (e) => {
         const x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -18,6 +21,8 @@ function Hero() {
 
 
     return (
+        <>
+       {showPopup && <InfoPopupHWAcc setShowPopup={setShowPopup} />}
         <MousePositionContext.Provider value={mousePosition}>
             <main onMouseMove={handleMouseMove} className=" bg-white relative overflow-hidden h-screen w-full">
 
@@ -37,9 +42,9 @@ function Hero() {
                                     <button
                                         className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                         type="button"
-
+                                       
                                     >
-                                        Learn more
+                                        <Link to="/theory" > Learn more</Link>
                                     </button>
                                 </div>
                                 <div className='flex items-center'>
@@ -63,6 +68,7 @@ function Hero() {
                 </div>
             </main>
         </MousePositionContext.Provider>
+        </>
     )
 }
 

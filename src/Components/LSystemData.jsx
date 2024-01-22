@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
 import { LsystemGen } from "../Utils/LsystemGenerator";
 import PopModal from "./Modal";
+import { v4 as uuidv4 } from "uuid";
 
 function LsysData({ onGenerate }) {
-  const [rules, setRules] = useState([{ key: "", rule: "" }]);
+  const [rules, setRules] = useState([{id:1, key: "", rule: "" }]);
   const [showModal, setShowModal] = useState(false);
   const axiomRef = useRef();
   const iterationRef = useRef();
@@ -17,11 +18,13 @@ function LsysData({ onGenerate }) {
 
   const handleAddRuleClick = () => {
     if (rules.length <= 2) {
+      const newId = rules.length + 1;
       ruleRefs.current.push({
+        id: newId,
         key: React.createRef(),
         rule: React.createRef(),
       });
-      setRules((prevRules) => [...prevRules, { key: "", rule: "" }]);
+      setRules((prevRules) => [...prevRules, { id: newId, key: "", rule: "" }]);
     }
   };
 
@@ -63,9 +66,9 @@ function LsysData({ onGenerate }) {
     setShowModal(!showModal);
   };
 
-  const handleRemoveRuleClick = (index) => {
-    ruleRefs.current = ruleRefs.current.filter((_, i) => i !== index);
-    setRules((prevRules) => prevRules.filter((_, i) => i !== index));
+  const handleRemoveRuleClick = (id) => {
+    ruleRefs.current = ruleRefs.current.filter((ref) => ref.id !== id);
+    setRules((prevRules) => prevRules.filter((rule) => rule.id !== id));
   };
 
   return (
@@ -124,7 +127,7 @@ function LsysData({ onGenerate }) {
 
             <div className="flex items-center">
               <button
-                onClick={() => handleRemoveRuleClick(i)}
+                onClick={() => handleRemoveRuleClick(rule.id)}
                 className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button">
                 Remove
