@@ -5,6 +5,7 @@ import QuickGuidePage from './views/QuickGuidePage.jsx'
 import TheoryPage from './views/TheoryPage.jsx'
 import './index.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './firebase.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
