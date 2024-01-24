@@ -2,7 +2,6 @@ import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Stack } from "../Utils/Stack";
-import { useFrame } from "@react-three/fiber";
 
 function Turtle({
   lsystem,
@@ -10,7 +9,8 @@ function Turtle({
   color,
   width = 1,
   angle = 90,
-  canvasPosition = [0, 0, 0],
+  initialPosition = [0, 0, 0],
+  initialDirection = [1, 0, 0]
 }) {
   const degreetoradian = useCallback((degrees) => {
     return degrees * (Math.PI / 180);
@@ -18,10 +18,10 @@ function Turtle({
   const [points, setPoints] = useState([]); // array of THREE.Vector3
   const LString = lsystem;
 
-  let pointPosition = new THREE.Vector3(0, 0, 0); // initial point position
+  let pointPosition = new THREE.Vector3(initialPosition[0], initialPosition[1], initialPosition[2]); // initial point position
   const localLength = length / 10;
   const angleChange = degreetoradian(angle);
-  let direction = new THREE.Vector3(1, 0, 0); // initial direction
+  let direction = new THREE.Vector3(initialDirection[0], initialDirection[1], initialDirection[2]); // initial direction
   const vectorY = new THREE.Vector3(0, 1, 0);
   const vectorZ = new THREE.Vector3(0, 0, 1);
   let savedPointsStack = new Stack();

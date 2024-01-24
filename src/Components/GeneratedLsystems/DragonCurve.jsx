@@ -75,7 +75,7 @@ function DragonCurve() {
                 {turtles.map((turtle, index) => (
 
                     <Turtle
-                        canvasPosition={[0, -2, 0]}
+                        initialPosition={[0, -2, 0]}
                         key={index}
                         lsystem={turtle.lsystem}
                         length={turtle.length}

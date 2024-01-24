@@ -7,9 +7,9 @@ function MainPage() {
     return (
         <div>
             <Suspense fallback={<div>Loading...</div>}>
-                <div className='flex '>
+                 <div className='flex '>
                     <Hero />
-                </div>
+                </div> 
                 <div id='lsysSection' className='flex p-4'>
                     <LsysSection />
                 </div>
