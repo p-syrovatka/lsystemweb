@@ -27,7 +27,7 @@ function Theoryhero() {
               Your tagline{" "}
             </span>
             <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
-              Medium length display headline.
+              L-systems convert strings into fractals
             </h1>
             <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
               Free and Premium themes, UI Kit's, templates and landing pages
