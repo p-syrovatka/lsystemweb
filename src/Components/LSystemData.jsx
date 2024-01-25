@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { LsystemGen } from "../Utils/LsystemGenerator";
 import PopModal from "./Modal";
 import { v4 as uuidv4 } from "uuid";
 
 function LsysData({ onGenerate }) {
-  const [rules, setRules] = useState([{id:1, key: "", rule: "" }]);
+  const [rules, setRules] = useState([{id:uuidv4(), key: "", rule: "" }]);
   const [showModal, setShowModal] = useState(false);
   const axiomRef = useRef();
   const iterationRef = useRef();
@@ -18,7 +18,7 @@ function LsysData({ onGenerate }) {
 
   const handleAddRuleClick = () => {
     if (rules.length <= 2) {
-      const newId = rules.length + 1;
+      const newId = uuidv4();
       ruleRefs.current.push({
         id: newId,
         key: React.createRef(),
@@ -27,6 +27,10 @@ function LsysData({ onGenerate }) {
       setRules((prevRules) => [...prevRules, { id: newId, key: "", rule: "" }]);
     }
   };
+
+  useEffect(() => {
+    console.log("rules", rules);
+  }, [rules]);
 
   const handleGenerateClick = () => {
     const axiomText = axiomRef.current.value;
@@ -71,6 +75,22 @@ function LsysData({ onGenerate }) {
     setRules((prevRules) => prevRules.filter((rule) => rule.id !== id));
   };
 
+  const handleKeyChange = (e, id) => {
+    setRules((prevRules) =>
+      prevRules.map((rule) =>
+        rule.id === id ? { ...rule, key: e.target.value } : rule
+      )
+    );
+  };
+  
+  const handleRuleChange = (e, id) => {
+    setRules((prevRules) =>
+      prevRules.map((rule) =>
+        rule.id === id ? { ...rule, rule: e.target.value } : rule
+      )
+    );
+  };
+
   return (
     <div className="grid grid-cols-2 bg-[rgba(163,163,163,0.23)] rounded-lg shadow-custom backdrop-filter[blur(16.7px)] p-1 pt-1">
       <div className="grid grid-cols-2 sm:gap-4 p-1 col-span-2 ">
@@ -102,11 +122,12 @@ function LsysData({ onGenerate }) {
         {showModal && <PopModal onClose={toggleModal} />}
         {rules.map((rule, i) => (
           <div
-            key={i}
+            key={rule.id}
             className="col-span-2 grid grid-cols-3 gap-2 py-2 min-h-[100px]">
             <div className="relative w-full lg:min-w-[100px]">
               <textarea
                 ref={ruleRefs.current[i].key}
+                onChange={(e) => handleKeyChange(e, rule.id)}
                 maxLength={1}
                 className="peer h-full bg-zinc-50 min-h-[50px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "></textarea>
@@ -128,6 +149,7 @@ function LsysData({ onGenerate }) {
             <div className="flex items-center">
               <button
                 onClick={() => handleRemoveRuleClick(rule.id)}
+                onChange={(e) => handleRuleChange(e, rule.id)}
                 className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button">
                 Remove

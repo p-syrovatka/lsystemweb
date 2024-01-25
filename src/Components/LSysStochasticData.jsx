@@ -1,9 +1,9 @@
 import React, { useState, useRef, createRef } from "react";
 import {LsysteStochasticmGen} from "../Utils/LsystemStochasticGenerator";
 import PopModal from "./Modal";
-
+import {v4 as uuidv4} from 'uuid';
 function LsysStochData({ onGenerate }) {
-  const [rules, setRules] = useState([{ key: "", rule: "", chance: "" }]);
+  const [rules, setRules] = useState([{ id:uuidv4(), key: "", rule: "", chance: "" }]);
   const [showModal, setShowModal] = useState(false);
   const axiomRef = useRef();
   const iterationRef = useRef();
@@ -20,12 +20,16 @@ function LsysStochData({ onGenerate }) {
   );
 
   const handleAddRuleClick = () => {
-    setRules([...rules, { key: "", rule: "", chance: "" }]);
-    ruleRefs.current.push({
-      key: createRef(),
-      rule: createRef(),
-      chance: createRef(),
-    });
+    if (rules.length <= 3) {
+      const newId = uuidv4();
+      ruleRefs.current.push({
+        id: newId,
+        key: React.createRef(),
+        rule: React.createRef(),
+        chance: React.createRef(),
+      });
+      setRules((prevRules) => [...prevRules, { id: newId, key: "", rule: "", chance: ""}]);
+    }
   };
 
   const handleGenerateClick = () => {
@@ -109,7 +113,7 @@ function LsysStochData({ onGenerate }) {
         {showModal && <PopModal onClose={toggleModal} />}
         {rules.map((rule, i) => (
           <div
-            key={i}
+            key={rule.id}
             className="col-span-2 grid grid-cols-7 gap-2 py-2 min-h-[100px]">
             <div className="relative w-full  col-span-1">
               <textarea
