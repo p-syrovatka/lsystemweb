@@ -30,8 +30,7 @@ function Theoryhero() {
               L-systems convert strings into fractals
             </h1>
             <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
-              Free and Premium themes, UI Kit's, templates and landing pages
-              built with Tailwind CSS, HTML &amp; Next.js.
+            The recursive nature of the L-system rules leads to self-similarity and thereby, fractal-like forms are easy to describe with an L-system. Plant models and natural-looking organic forms are easy to define, as by increasing the recursion level the form slowly 'grows' and becomes more complex. Lindenmayer systems are also popular in the generation of artificial life.
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
