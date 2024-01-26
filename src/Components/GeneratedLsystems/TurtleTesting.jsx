@@ -96,7 +96,7 @@ function TurtleTest({
     const geometry = new BufferGeometry().setFromPoints(points);
     const material = new LineBasicMaterial({
       color: color,
-      linewidth: 10,
+      linewidth: 1,
       linecap: "round", //ignored by WebGLRenderer
       linejoin: "round",
     });
