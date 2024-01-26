@@ -17,7 +17,7 @@ function Theoryhero() {
                 <div className="relative">
                   <div className="relative" style={{ userSelect: "none" }}>
                     {/* <FractalTree />*/}
-                    <div className="absolute right-0 w-10 h-full overflow-auto">
+                    <div className="absolute right-0 w-16 h-full overflow-auto z-10">
                       {/* This div will be scrollable, but it's invisible and doesn't block the view of the canvas */}
                     </div>
                     <BufferTest />
