@@ -17,20 +17,8 @@ function Theoryhero() {
                 <div className="relative">
                   <div className="relative" style={{ userSelect: "none" }}>
                     {/* <FractalTree />*/}
-                    <div className="absolute right-0 w-16  h-full overflow-auto z-10 bg-gray-50 bg-opacity-5 sm:bg-inherit sm:hidden" >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 100"
-                        stroke="currentColor"
-                        className="arrow-icon animate-moveDown opacity-50">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                        />
-                      </svg>
+                    <div className="absolute right-0 w-16  h-full overflow-auto z-10  bg-opacity-5 sm:bg-inherit sm:hidden" >
+                      
                       {/* This div will be scrollable, but it's invisible and doesn't block the view of the canvas */}
                     </div>
                     <BufferTest />
@@ -40,10 +28,7 @@ function Theoryhero() {
             </div>
           </div>
           <div className="flex flex-col items-start mt-12  text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-            <span className="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase">
-              {" "}
-              Your tagline{" "}
-            </span>
+            
             <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
               L-systems convert strings into fractals
             </h1>

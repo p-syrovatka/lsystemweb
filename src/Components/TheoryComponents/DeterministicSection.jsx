@@ -20,7 +20,7 @@ function DeterministicSection() {
                 rx="20"
                 height="200"
                 width="200"
-                stroke="rgba(0,0,1,0.2)"
+                stroke="rgba(0,0,1,0.1)"
                 fill="none"
               />
             </pattern>
@@ -49,18 +49,22 @@ function DeterministicSection() {
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Deterministic X stochastic
               </h1>
-              <p className="mt-6 text-xl leading-8 text-gray-700">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
-                sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
-                id at vitae feugiat egestas.
+              <p className="mt-6 text-xl leading-8 text-gray-900">
+                They provide a framework for modeling the growth of complex
+                structures, often used in computer graphics, biological
+                simulations, and generative design. Two fundamental types of
+                L-Systems, stochastic and deterministic, offer distinct
+                approaches to generating intricate patterns and forms.
               </p>
             </div>
           </div>
         </div>
-        <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <img 
-          className="relative mx-auto lg:max-w-none rounded-2xl shadow-xl"
-          src={dragoncurveimg} alt="dragoncurve" />
+        <div className=" -mt-6 p-6 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+          <img
+            className="relative mx-auto lg:max-w-none rounded-2xl shadow-xl"
+            src={dragoncurveimg}
+            alt="dragoncurve"
+          />
         </div>
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
