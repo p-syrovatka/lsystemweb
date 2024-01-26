@@ -25,7 +25,7 @@ function DeterministicSection() {
               />
             </pattern>
           </defs>
-          <svg x="45.72%" y="-35" className="overflow-visible">
+          <svg x="45.72%" y="-35" className="overflow-visible hidden sm:block">
             <rect
               rx="20"
               height="200"
