@@ -1,7 +1,7 @@
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Stack } from "../Utils/Stack";
+import { Stack } from "../../Utils/Stack";
 
 function Turtle({
   lsystem,

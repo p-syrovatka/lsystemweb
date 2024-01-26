@@ -1,12 +1,13 @@
 import React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import Turtle from '../TurtleInterpretation';
+import Turtle from '../SharedComps/TurtleInterpretation';
 import { LsystemGen } from '../../Utils/LsystemGenerator';
 import { useState, useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
 import { useContext } from 'react';
-import { MousePositionContext } from '../Hero';
+import { MousePositionContext } from '../MainPageComps/Hero';
+import TurtleTest from './TurtleTesting';
 
 function CameraSetter() {
     const { camera } = useThree();
@@ -74,7 +75,7 @@ function DragonCurve() {
                 <ambientLight intensity={1} />
                 {turtles.map((turtle, index) => (
 
-                    <Turtle
+                    <TurtleTest
                         initialPosition={[0, -2, 0]}
                         key={index}
                         lsystem={turtle.lsystem}

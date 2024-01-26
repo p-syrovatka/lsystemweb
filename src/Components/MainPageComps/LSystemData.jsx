@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { LsystemGen } from "../Utils/LsystemGenerator";
-import PopModal from "./Modal";
+import { LsystemGen } from "../../Utils/LsystemGenerator";
+import PopModal from "../Modal";
 import { v4 as uuidv4 } from "uuid";
 
 function LsysData({ onGenerate }) {

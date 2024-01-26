@@ -1,7 +1,7 @@
 
 import React, { Suspense, lazy } from 'react';
-const Hero = lazy(() => import('../Components/Hero'));
-const LsysSection = lazy(() => import('../Components/LsysSection'));
+const Hero = lazy(() => import('../Components/MainPageComps/Hero'));
+const LsysSection = lazy(() => import('../Components/MainPageComps/LsysSection'));
 
 function MainPage() {
     return (

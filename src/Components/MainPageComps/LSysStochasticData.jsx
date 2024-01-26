@@ -1,6 +1,6 @@
 import React, { useState, useRef, createRef } from "react";
-import {LsysteStochasticmGen} from "../Utils/LsystemStochasticGenerator";
-import PopModal from "./Modal";
+import {LsysteStochasticmGen} from "../../Utils/LsystemStochasticGenerator";
+import PopModal from "../Modal";
 import {v4 as uuidv4} from 'uuid';
 function LsysStochData({ onGenerate }) {
   const [rules, setRules] = useState([{ id:uuidv4(), key: "", rule: "", chance: "" }]);

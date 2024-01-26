@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import DragonCurve from "./GeneratedLsystems/DragonCurve";
-import { smoothScroll } from "../Utils/SmoothScroll";
+import DragonCurve from "../GeneratedLsystems/DragonCurve";
+import { smoothScroll } from "../../Utils/SmoothScroll";
 import InfoPopupHWAcc from "./InfoPopupHWAcc";
 import { Link } from "react-router-dom";
 

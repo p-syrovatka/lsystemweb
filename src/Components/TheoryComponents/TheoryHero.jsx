@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SierpinskiTriangle from "../GeneratedLsystems/SierpinskiTriangle";
+import FractalTree from "../GeneratedLsystems/FractalTree";
+import BufferTest from "../GeneratedLsystems/BufferTEst";
+
 
 function Theoryhero() {
   return (
@@ -14,8 +16,9 @@ function Theoryhero() {
 
                 <div className="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
                 <div className="relative">
-                  <div className="relative">
-                    <SierpinskiTriangle />
+                  <div className="relative" style={{ userSelect: "none" }}>
+                   {/* <FractalTree />*/}
+                   <BufferTest />
                   </div>
                 </div>
               </div>
@@ -30,17 +33,27 @@ function Theoryhero() {
               L-systems convert strings into fractals
             </h1>
             <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
-            The recursive nature of the L-system rules leads to self-similarity and thereby, fractal-like forms are easy to describe with an L-system. Plant models and natural-looking organic forms are easy to define, as by increasing the recursion level the form slowly 'grows' and becomes more complex. Lindenmayer systems are also popular in the generation of artificial life.
+              The recursive nature of the L-system rules leads to
+              self-similarity and thereby, fractal-like forms are easy to
+              describe with an L-system. Plant models and natural-looking
+              organic forms are easy to define, as by increasing the recursion
+              level the form slowly 'grows' and becomes more complex.
+              Lindenmayer systems are also popular in the generation of
+              artificial life.
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
-                <button className="items-center block px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                  Get bundle
-                </button>
-              </div>
-              <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                <button className="items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                  See features
+                <button
+                  className="select-none rounded-lg bg-gray-900 py-3 px-60 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  type="button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="white"
+                    viewBox="0 0 24 24">
+                    <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" />
+                  </svg>
                 </button>
               </div>
             </div>

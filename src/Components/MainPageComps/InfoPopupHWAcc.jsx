@@ -2,7 +2,7 @@ function InfoPopupHWAcc({setShowPopup}) {
   return (
     <section className="fixed flex items-center z-50 justify-between max-w-4xl p-4 sm:mr-0 mr-10 mx-auto bg-white border border-gray-200 shadow-md dark:bg-gray-900 left-12 bottom-16 dark:shadow-gray-900 shadow-gray-100 md:gap-x-4 dark:border-gray-700 rounded-2xl">
       <p className="text-sm text-gray-600 dark:text-gray-300">
-       This webapp is hardware accelerated. It uses the GPU to render the L-systems. Using hardware acceleration is recommended.
+       This webapp is hardware accelerated. Using hardware acceleration is recommended aswell as WebGL 2.0.
       </p>
 
       <button 

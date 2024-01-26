@@ -1,12 +1,12 @@
 import React from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import Turtle from "../TurtleInterpretation";
+import Turtle from "../SharedComps/TurtleInterpretation";
 import { LsystemGen } from "../../Utils/LsystemGenerator";
 import { useState, useEffect, useRef } from "react";
 import { useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useContext } from "react";
-import { MousePositionContext } from "../Hero";
+import { MousePositionContext } from "../MainPageComps/Hero";
 
 function CameraSetter() {
   const { camera } = useThree();
@@ -28,7 +28,7 @@ function CameraMovement() {
   return null;
 }
 
-function SierpinskiTriangle() {
+function FractalTree() {
   const [turtles, setTurtles] = useState([]);
   //const { mousePosition, setMousePosition } = useContext(MousePositionContext);
 
@@ -93,4 +93,4 @@ function SierpinskiTriangle() {
   );
 }
 
-export default SierpinskiTriangle;
+export default FractalTree;
