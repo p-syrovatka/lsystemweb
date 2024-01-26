@@ -21,7 +21,7 @@ function Theoryhero() {
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
-                        viewBox="0 0 24 220"
+                        viewBox="0 0 24 100"
                         stroke="currentColor"
                         className="arrow-icon animate-moveDown opacity-50">
                         <path
