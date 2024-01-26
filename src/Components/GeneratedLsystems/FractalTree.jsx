@@ -40,7 +40,7 @@ function FractalTree() {
 
   useEffect(() => {
     setTurtles([]);
-    addTurtle(defaultLsystem, 1, 2, "rgba(17, 45, 19)", 25);
+    addTurtle(defaultLsystem, 1, 1, "rgba(17, 45, 19)", 25);
   }, []);
 
   function BackgroundSetter() {
