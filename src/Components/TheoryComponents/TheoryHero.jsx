@@ -17,7 +17,20 @@ function Theoryhero() {
                 <div className="relative">
                   <div className="relative" style={{ userSelect: "none" }}>
                     {/* <FractalTree />*/}
-                    <div className="absolute right-0 w-16 h-full overflow-auto z-10">
+                    <div className="absolute right-0 w-16  h-full overflow-auto z-10 bg-gray-50 bg-opacity-5 sm:bg-inherit sm:hidden" >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 220"
+                        stroke="currentColor"
+                        className="arrow-icon animate-moveDown opacity-50">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                      </svg>
                       {/* This div will be scrollable, but it's invisible and doesn't block the view of the canvas */}
                     </div>
                     <BufferTest />
@@ -26,7 +39,7 @@ function Theoryhero() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
+          <div className="flex flex-col items-start mt-12  text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
             <span className="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase">
               {" "}
               Your tagline{" "}
@@ -45,7 +58,7 @@ function Theoryhero() {
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
-               {/*  <button
+                {/*  <button
                   className="select-none rounded-lg bg-gray-900 py-3 px-60 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                   type="button">
                   <svg
