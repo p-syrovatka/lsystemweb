@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import FractalTree from "../GeneratedLsystems/FractalTree";
 import BufferTest from "../GeneratedLsystems/BufferTEst";
 
-
 function Theoryhero() {
   return (
     <section>
@@ -17,8 +16,11 @@ function Theoryhero() {
                 <div className="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
                 <div className="relative">
                   <div className="relative" style={{ userSelect: "none" }}>
-                   {/* <FractalTree />*/}
-                   <BufferTest />
+                    {/* <FractalTree />*/}
+                    <div className="absolute right-0 w-10 h-full overflow-auto">
+                      {/* This div will be scrollable, but it's invisible and doesn't block the view of the canvas */}
+                    </div>
+                    <BufferTest />
                   </div>
                 </div>
               </div>
@@ -43,7 +45,18 @@ function Theoryhero() {
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
-             
+                <button
+                  className="select-none rounded-lg bg-gray-900 py-3 px-60 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  type="button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="white"
+                    viewBox="0 0 24 24">
+                    <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
