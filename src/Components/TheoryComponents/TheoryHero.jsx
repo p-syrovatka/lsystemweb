@@ -43,18 +43,7 @@ function Theoryhero() {
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
-                <button
-                  className="select-none rounded-lg bg-gray-900 py-3 px-60 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  type="button">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="white"
-                    viewBox="0 0 24 24">
-                    <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" />
-                  </svg>
-                </button>
+             
               </div>
             </div>
           </div>

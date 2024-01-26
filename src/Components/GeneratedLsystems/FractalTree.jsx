@@ -32,7 +32,7 @@ function FractalTree() {
   const [turtles, setTurtles] = useState([]);
   //const { mousePosition, setMousePosition } = useContext(MousePositionContext);
 
-  let rules = { X: "F+*[//[X]-X]-F//[-FX]+X", F: "FF" };
+  let rules = { X: "F+[[X]-X]-F[-FX]+X", F: "FF" };
   let axiom = "X";
   let iteration = 8;
   const defaultLsystem = LsystemGen(axiom, rules, iteration);
