@@ -1,5 +1,6 @@
 import DragonCurve from "../GeneratedLsystems/DragonCurve";
 import dragoncurveimg from "../../assets/dragoncurveimg.png";
+import lsystemsfractal from "../../assets/lsystemsfractal.jpg";
 
 function DeterministicSection() {
   return (
@@ -62,7 +63,7 @@ function DeterministicSection() {
         <div className=" -mt-6 p-6 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
           <img
             className="relative mx-auto lg:max-w-none rounded-2xl shadow-xl"
-            src={dragoncurveimg}
+            src={lsystemsfractal}
             alt="dragoncurve"
           />
         </div>
