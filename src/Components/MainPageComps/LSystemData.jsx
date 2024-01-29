@@ -4,8 +4,10 @@ import PopModal from "../Modal";
 import { v4 as uuidv4 } from "uuid";
 
 function LsysData({ onGenerate }) {
-  const [rules, setRules] = useState([{id:uuidv4(), key: "", rule: "" }]);
+  const [rules, setRules] = useState([{ id: uuidv4(), key: "", rule: "" }]);
   const [showModal, setShowModal] = useState(false);
+  const [missingData, setMissingData] = useState();
+  const [showQuickGuide, setShowQuickGuide] = useState(false);
   const axiomRef = useRef();
   const iterationRef = useRef();
   const lengthRef = useRef();
@@ -28,10 +30,7 @@ function LsysData({ onGenerate }) {
     }
   };
 
-  useEffect(() => {
-    console.log("rules", rules);
-  }, [rules]);
-
+ 
   const handleGenerateClick = () => {
     const axiomText = axiomRef.current.value;
     const iteratios = iterationRef.current.value;
@@ -43,7 +42,12 @@ function LsysData({ onGenerate }) {
     }, {});
 
     if (!axiomText || !iteratios || Object.keys(rulesObject).length === 0) {
-      toggleModal();
+      let missingData = [];
+      if (!axiomText) missingData.push("Axiom");
+      if (!iteratios) missingData.push("Iterations");
+      if (Object.keys(rulesObject).length === 0) missingData.push("Rules");
+      setMissingData(missingData);
+      toggleModalMissingData();
       return;
     }
 
@@ -61,12 +65,12 @@ function LsysData({ onGenerate }) {
         ? 90
         : angleRef.current.value;
     let newLsystem = LsystemGen(axiomText, rulesObject, iteratios);
-    console.log("newLsystem inside Lsystemdata", newLsystem);
+
 
     onGenerate({ newLsystem, length, width, color, angle });
   };
 
-  const toggleModal = () => {
+  const toggleModalMissingData = () => {
     setShowModal(!showModal);
   };
 
@@ -82,7 +86,7 @@ function LsysData({ onGenerate }) {
       )
     );
   };
-  
+
   const handleRuleChange = (e, id) => {
     setRules((prevRules) =>
       prevRules.map((rule) =>
@@ -90,6 +94,10 @@ function LsysData({ onGenerate }) {
       )
     );
   };
+
+  const toggleModalQuickGuide = () => {
+    setShowQuickGuide(!showQuickGuide);
+  }
 
   return (
     <div className="grid grid-cols-2 bg-[rgba(163,163,163,0.23)] rounded-lg shadow-custom backdrop-filter[blur(16.7px)] p-1 pt-1">
@@ -119,7 +127,7 @@ function LsysData({ onGenerate }) {
             </label>
           </div>
         </div>
-        {showModal && <PopModal onClose={toggleModal} />}
+        {showModal && <PopModal onClose={toggleModalMissingData} missingData={missingData} />}
         {rules.map((rule, i) => (
           <div
             key={rule.id}

@@ -5,6 +5,7 @@ import {v4 as uuidv4} from 'uuid';
 function LsysStochData({ onGenerate }) {
   const [rules, setRules] = useState([{ id:uuidv4(), key: "", rule: "", chance: "" }]);
   const [showModal, setShowModal] = useState(false);
+  const [missingData, setMissingData] = useState();
   const axiomRef = useRef();
   const iterationRef = useRef();
   const lengthRef = useRef();
@@ -48,10 +49,15 @@ function LsysStochData({ onGenerate }) {
         return obj;
       }, {});
 
-    if (!axiomText || !iteratios || Object.keys(rulesObject).length === 0) {
-      toggleModal();
-      return;
-    }
+      if (!axiomText || !iteratios || Object.keys(rulesObject).length === 0) {
+        let missingData = [];
+        if (!axiomText) missingData.push("Axiom");
+        if (!iteratios) missingData.push("Iterations");
+        if (Object.keys(rulesObject).length === 0) missingData.push("Rules");
+        setMissingData(missingData);
+        toggleModal();
+        return;
+      }
 
     const length =
       lengthRef.current.value == null || lengthRef.current.value <= 0
@@ -110,7 +116,7 @@ function LsysStochData({ onGenerate }) {
             </label>
           </div>
         </div>
-        {showModal && <PopModal onClose={toggleModal} />}
+        {showModal && <PopModal onClose={toggleModal} missingData={missingData} />}
         {rules.map((rule, i) => (
           <div
             key={rule.id}

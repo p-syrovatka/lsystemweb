@@ -10,8 +10,8 @@ import TransformControlSelect from "./TransformStateControl";
 import ObjectList from "./ObjectList";
 import LsysStochData from "./LSysStochasticData";
 import LsystemTabs from "./LsystemTabs";
+import QuickGuideModal from "../QuickGuideModal";
 import { v4 as uuidv4 } from "uuid";
-
 
 export default function LsysSection() {
   const [isDragging, setIsDragging] = useState(false);
@@ -20,6 +20,7 @@ export default function LsysSection() {
     useState("translate");
   const [showTransformControls, setShowTransformControls] = useState(true);
   const [activeTab, setActiveTab] = useState("Deterministic");
+  const [showQuickGuide, setShowQuickGuide] = useState(false);
   let rules = { F: "F+F-F-F+F" };
   let axiom = "F-F-F-F";
   let iteration = 2;
@@ -36,7 +37,6 @@ export default function LsysSection() {
     setTurtles([]);
     addTurtle(defaultLsystem, 1, 5, "black");
   }, []);
-
 
   const handleGenerate = (data) => {
     addTurtle(data.newLsystem, data.length, data.width, data.color, data.angle);
@@ -91,11 +91,15 @@ export default function LsysSection() {
         return <LsysData onGenerate={handleGenerate} />;
     }
   }
+ 
+  const toggleModalQuickGuide = () => {
+    setShowQuickGuide(!showQuickGuide);
+  }
 
   return (
     <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-2 lg:min-h-screen">
       <div className="lg:min-h-[700px] lg:max-h-[800px] col-span-2 relative min-h-[500px] max-h-[700]  ">
-        <div className="absolute top-0 left-0 m-4 z-10 gap-1 sm:flex">
+        <div className="absolute top-0 left-0 m-4 z-10 gap-1 sm:flex w-11/12">
           <TransformControlSelect
             transfromControlState={transfromControlState}
             handleTransformControlChange={handleTransformControlChange}
@@ -111,33 +115,37 @@ export default function LsysSection() {
             onClick={() => setShowTransformControls(!showTransformControls)}>
             Toggle Transform Controls
           </button>
+          <button 
+          className="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-2 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          onClick={toggleModalQuickGuide}>
+            Quick guide
+          </button>
         </div>
         <Canvas className="border p-4 rounded-lg">
           {!isDragging && <OrbitControls ref={controlsRef} />}
           <BackgroundSetter />
           <ambientLight intensity={0.5} />
-          {turtles.map((turtle, index) =>
-           
-              <TransformControls
-                mode={transfromControlState.toLocaleLowerCase()}
-                enabled={showTransformControls}
-                key={turtle.id}
-                showX={showTransformControls}
-                showY={showTransformControls}
-                showZ={showTransformControls}
-                onMouseDown={() => setIsDragging(true)}
-                onMouseUp={() => setIsDragging(false)}>
-                <Turtle
-                  {...bind()}
-                  lsystem={turtle.lsystem}
-                  length={turtle.length}
-                  width={turtle.width}
-                  color={turtle.color}
-                  angle={turtle.angle}
-                  onRemove={() => removeTurtle(turtle.id)}
-                />
-              </TransformControls>
-          )}
+          {turtles.map((turtle, index) => (
+            <TransformControls
+              mode={transfromControlState.toLocaleLowerCase()}
+              enabled={showTransformControls}
+              key={turtle.id}
+              showX={showTransformControls}
+              showY={showTransformControls}
+              showZ={showTransformControls}
+              onMouseDown={() => setIsDragging(true)}
+              onMouseUp={() => setIsDragging(false)}>
+              <Turtle
+                {...bind()}
+                lsystem={turtle.lsystem}
+                length={turtle.length}
+                width={turtle.width}
+                color={turtle.color}
+                angle={turtle.angle}
+                onRemove={() => removeTurtle(turtle.id)}
+              />
+            </TransformControls>
+          ))}
         </Canvas>
       </div>
       <div className="">
@@ -151,6 +159,7 @@ export default function LsysSection() {
           <ObjectList turtles={turtles} removeTurtle={removeTurtle} />
         </div>
       </div>
+    {showQuickGuide && <QuickGuideModal onClose={toggleModalQuickGuide}/>}
     </div>
   );
 }

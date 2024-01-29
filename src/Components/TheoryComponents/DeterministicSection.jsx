@@ -85,7 +85,7 @@ function DeterministicSection() {
               <ul role="list" className="mt-8 space-y-4 text-gray-600">
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -99,7 +99,7 @@ function DeterministicSection() {
                 </li>
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -113,7 +113,7 @@ function DeterministicSection() {
                 </li>
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -127,7 +127,7 @@ function DeterministicSection() {
                 </li>
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -159,7 +159,7 @@ function DeterministicSection() {
               <ul role="list" className="mt-8 space-y-4 text-gray-600">
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -173,7 +173,7 @@ function DeterministicSection() {
                 </li>
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -187,7 +187,7 @@ function DeterministicSection() {
                 </li>
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">
@@ -201,7 +201,7 @@ function DeterministicSection() {
                 </li>
                 <li className="flex gap-x-3">
                   <svg
-                    class="mt-1 h-5 w-5 flex-none text-indigo-600"
+                    className="mt-1 h-5 w-5 flex-none text-indigo-600"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true">

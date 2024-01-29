@@ -28,6 +28,14 @@ const RouterComp = () => {
             </TransitionComponent>
           }
         />
+        <Route
+          path="/QuickGuide"
+          element={
+            <TransitionComponent>
+              <QuickGuidePage />
+            </TransitionComponent>
+          }
+        />
       </Routes>
     </TransitionProvider>
   );

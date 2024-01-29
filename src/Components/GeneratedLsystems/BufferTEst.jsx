@@ -58,7 +58,7 @@ function BufferTest() {
       ...prevturtles,
       { id, lsystem, length, width, color, angle },
     ]);
-    console.log(turtles);
+   
   };
 
   return (

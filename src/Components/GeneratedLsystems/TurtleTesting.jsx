@@ -38,9 +38,7 @@ function TurtleTest({
   const lineRef = useRef();
   const [position, setPosition] = useState([0, 0, 0]);
 
-  useEffect(() => {
-    console.log(`LString: ${LString}`);
-  }, [LString]);
+
 
   useEffect(() => {
     const newPoints = [];
