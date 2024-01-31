@@ -31,3 +31,7 @@ Acknowledgments
 This web application is inspired by the fascinating world of L-Systems and the creativity they enable in procedural generation. Special thanks to the OpenAI GPT-3 model for assisting in the creation of this README file.
 
 Feel free to explore and enjoy the captivating world of L-Systems!
+
+Hardware acceleration should be enabled for the best experience.
+
+Techstack: Javascript, React, ThreeJS, GSAP.
