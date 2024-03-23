@@ -1,7 +1,7 @@
 function LsystemTabs({ activeTab, setActiveTab }) {
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700">
-      <ul className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+    <div className="border-b border-gray-200 ">
+      <ul className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500">
         <li className="me-2 cursor-pointer">
           <a
             onClick={(e) => {

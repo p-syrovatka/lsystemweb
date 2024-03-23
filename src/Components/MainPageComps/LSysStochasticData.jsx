@@ -1,9 +1,11 @@
 import React, { useState, useRef, createRef } from "react";
-import {LsysteStochasticmGen} from "../../Utils/LsystemStochasticGenerator";
+import { LsysteStochasticmGen } from "../../Utils/LsystemStochasticGenerator";
 import PopModal from "../Modal";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 function LsysStochData({ onGenerate }) {
-  const [rules, setRules] = useState([{ id:uuidv4(), key: "", rule: "", chance: "" }]);
+  const [rules, setRules] = useState([
+    { id: uuidv4(), key: "", rule: "", chance: "" },
+  ]);
   const [showModal, setShowModal] = useState(false);
   const [missingData, setMissingData] = useState();
   const axiomRef = useRef();
@@ -29,7 +31,10 @@ function LsysStochData({ onGenerate }) {
         rule: React.createRef(),
         chance: React.createRef(),
       });
-      setRules((prevRules) => [...prevRules, { id: newId, key: "", rule: "", chance: ""}]);
+      setRules((prevRules) => [
+        ...prevRules,
+        { id: newId, key: "", rule: "", chance: "" },
+      ]);
     }
   };
 
@@ -37,27 +42,27 @@ function LsysStochData({ onGenerate }) {
     const axiomText = axiomRef.current.value;
     const iteratios = iterationRef.current.value;
     const rulesObject = ruleRefs.current.reduce((obj, item, index) => {
-        const key = item.key.current.value;
-        const rule = item.rule.current.value;
-        const chance = item.chance.current.value;
-        if (key) {
-          if (!obj[key]) {
-            obj[key] = [];
-          }
-          obj[key].push({ rule, chance });
+      const key = item.key.current.value;
+      const rule = item.rule.current.value;
+      const chance = item.chance.current.value;
+      if (key) {
+        if (!obj[key]) {
+          obj[key] = [];
         }
-        return obj;
-      }, {});
-
-      if (!axiomText || !iteratios || Object.keys(rulesObject).length === 0) {
-        let missingData = [];
-        if (!axiomText) missingData.push("Axiom");
-        if (!iteratios) missingData.push("Iterations");
-        if (Object.keys(rulesObject).length === 0) missingData.push("Rules");
-        setMissingData(missingData);
-        toggleModal();
-        return;
+        obj[key].push({ rule, chance });
       }
+      return obj;
+    }, {});
+
+    if (!axiomText || !iteratios || Object.keys(rulesObject).length === 0) {
+      let missingData = [];
+      if (!axiomText) missingData.push("Axiom");
+      if (!iteratios) missingData.push("Iterations");
+      if (Object.keys(rulesObject).length === 0) missingData.push("Rules");
+      setMissingData(missingData);
+      toggleModal();
+      return;
+    }
 
     const length =
       lengthRef.current.value == null || lengthRef.current.value <= 0
@@ -73,10 +78,10 @@ function LsysStochData({ onGenerate }) {
         ? 90
         : angleRef.current.value;
 
-        let newLsystem = LsysteStochasticmGen(axiomText, rulesObject, iteratios);
-        console.log('newSystem:', newLsystem, 'Type:', typeof newLsystem); // Add this line
-        
-        onGenerate({ newLsystem, length, width, color, angle }); 
+    let newLsystem = LsysteStochasticmGen(axiomText, rulesObject, iteratios);
+    console.log("newSystem:", newLsystem, "Type:", typeof newLsystem); // Add this line
+
+    onGenerate({ newLsystem, length, width, color, angle });
   };
 
   const toggleModal = () => {
@@ -96,7 +101,8 @@ function LsysStochData({ onGenerate }) {
             <textarea
               ref={axiomRef}
               className="peer h-full bg-zinc-50 min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-              placeholder=" "></textarea>
+              placeholder=" "
+            ></textarea>
             <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
               Axiom
             </label>
@@ -110,23 +116,28 @@ function LsysStochData({ onGenerate }) {
               onChange={(event) => {
                 const value = event.target.value;
                 event.target.value = value.replace(/[^0-9]/g, "");
-              }}></textarea>
+              }}
+            ></textarea>
             <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
               Iteration
             </label>
           </div>
         </div>
-        {showModal && <PopModal onClose={toggleModal} missingData={missingData} />}
+        {showModal && (
+          <PopModal onClose={toggleModal} missingData={missingData} />
+        )}
         {rules.map((rule, i) => (
           <div
             key={rule.id}
-            className="col-span-2 grid grid-cols-7 gap-2 py-2 min-h-[100px]">
+            className="col-span-2 grid grid-cols-7 gap-2 py-2 min-h-[100px]"
+          >
             <div className="relative w-full  col-span-1">
               <textarea
                 ref={ruleRefs.current[i].key}
                 maxLength={1}
                 className="peer h-full bg-zinc-50 min-h-[50px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder=" "></textarea>
+                placeholder=" "
+              ></textarea>
               <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                 Key
               </label>
@@ -136,7 +147,8 @@ function LsysStochData({ onGenerate }) {
               <textarea
                 ref={ruleRefs.current[i].rule}
                 className="peer h-full bg-zinc-50 min-h-[50px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder=" "></textarea>
+                placeholder=" "
+              ></textarea>
               <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                 Rule
               </label>
@@ -145,7 +157,8 @@ function LsysStochData({ onGenerate }) {
               <textarea
                 ref={ruleRefs.current[i].chance}
                 className="peer h-full bg-zinc-50 min-h-[50px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder=" "></textarea>
+                placeholder=" "
+              ></textarea>
               <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                 Chance
               </label>
@@ -154,25 +167,30 @@ function LsysStochData({ onGenerate }) {
             <div className="flex items-center col-span-2">
               <button
                 onClick={() => handleRemoveRuleClick(i)}
-                className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                type="button">
+                className="select-none rounded-lg bg-gray-900 py-3 sm:px-6 md:px-[8px] lg:px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+              >
                 Remove
               </button>
             </div>
           </div>
         ))}
-        <button
-          onClick={handleAddRuleClick}
-          className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Add Rule
-        </button>
-        <button
-          onClick={handleGenerateClick}
-          className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Generate
-        </button>
+        <div className="flex col-span-2 w-full gap-2">
+          <button
+            onClick={handleAddRuleClick}
+            className="w-full select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+          >
+            Add Rule
+          </button>
+          <button
+            onClick={handleGenerateClick}
+            className="w-full select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+          >
+            Generate
+          </button>
+        </div>
       </div>
       <div className="grid grid-cols-3 col-span-2 sm:p-1 gap-2 ">
         <div className="relative w-full min-w-[100px] h-10 col-span-2">
